@@ -20,6 +20,10 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  color: #111;
+}
+
 .btn {
   margin-top: 20px;
   padding: 15px 30px;
