@@ -1,0 +1,18 @@
+const inputFieldValue = document.getElementById("assignHexValue");
+const myButton = document.querySelector("#myButton");
+const bodyTag = document.getElementsByTagName("body");
+
+console.log(bodyTag);
+
+myButton.addEventListener("click", function () {
+  const hexValue = getHexValue();
+  inputFieldValue.value = hexValue;
+  bodyTag[0].style.backgroundColor = hexValue;
+});
+
+function getHexValue() {
+  const red = Math.floor(Math.random() * 255);
+  const green = Math.floor(Math.random() * 255);
+  const blue = Math.floor(Math.random() * 255);
+  return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+}
