@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input_group {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input_hash {
+  position: absolute;
+  left: 8px;
+  background-color: #ddd;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  color: #424242;
+  padding: 5px 10px;
+}
+
+input[type="text"],
+#cpy_btn {
+  box-shadow: 0px 4px 5px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid #1111111c;
+}
+
+.output {
+  padding-left: 30px !important;
+}
+
+#assignHexValue {
+  margin: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#myButton {
+  padding: 10px 63px;
+  font-size: 17px;
+  color: #fff;
+  background-color: #111;
+  text-transform: uppercase;
+  border-color: rgba(201, 184, 184, 0.767);
+}
+
+#cpy_btn {
+  margin-left: 3px;
+  padding: 5px 8px;
+}
+
+/*===============
+ toast message  
+ ================*/
+
+.toast_message {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  background-color: palevioletred;
+  color: #fff;
+  height: 50px;
+  width: 150px;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.toast_message_in {
+  animation: toast_animation_message_in 0.5s ease-in;
+}
+
+.toast_message_out {
+  animation: toast_animation_message_out 0.5s ease-in;
+}
+
+@keyframes toast_animation_message_in {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes toast_animation_message_out {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}

@@ -6,13 +6,18 @@ let div = null;
 
 myButton.addEventListener("click", function () {
   const hexValue = getHexValue();
-  inputFieldValue.value = hexValue;
+  inputFieldValue.value = hexValue.substring(1);
+  console.log(inputFieldValue.value);
   bodyTag[0].style.backgroundColor = hexValue;
 });
 
 copyBtn.addEventListener("click", function () {
-  navigator.clipboard.writeText(inputFieldValue.value);
-  generateToastMessage(`${inputFieldValue.value} copied`);
+  navigator.clipboard.writeText(`#${inputFieldValue.value}`);
+  if (isValidHex(inputFieldValue.value)) {
+    generateToastMessage(`#${inputFieldValue.value} copied`);
+  } else {
+    alert("enter correct hex value");
+  }
 });
 
 function getHexValue() {
@@ -44,4 +49,20 @@ function generateToastMessage(message) {
       div = null;
     });
   });
+}
+
+//press input vlaue background color change
+
+inputFieldValue.addEventListener("keyup", function (eventObject) {
+  let color = eventObject.target.value;
+  if (color && isValidHex(color)) {
+    bodyTag[0].style.backgroundColor = `#${color}`;
+  }
+});
+
+// input vlaue chake for valid hex value
+
+function isValidHex(color) {
+  if (color.length !== 6) return false;
+  return /^[0-9A-Fa-f]{6}$/i.test(color);
 }

@@ -9,8 +9,11 @@ myButton.addEventListener("click", function () {
 });
 
 function getHexValue() {
-  const red = Math.floor(Math.random() * 255);
-  const green = Math.floor(Math.random() * 255);
-  const blue = Math.floor(Math.random() * 255);
-  return `#${red.toString(16)}${green.toString(16)}${blue.toString(16)}`;
+  const red = Math.floor(Math.random() * 255).toString(16);
+  const green = Math.floor(Math.random() * 255).toString(16);
+  const blue = Math.floor(Math.random() * 255).toString(16);
+  const redHex = red.length == 1 ? "0" + red : red;
+  const greenHex = green.length == 1 ? "0" + green : green;
+  const blueHex = blue.length == 1 ? "0" + blue : blue;
+  return `#${redHex}${greenHex}${blueHex}`;
 }
